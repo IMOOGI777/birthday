@@ -128,6 +128,12 @@ window.onresize = () => birthday.resize();
 const startBtn = document.getElementById("startBtn");
 const card = document.getElementById("card");
 
+const closeCard = document.getElementById("closeCard");
+
+closeCard.onclick = () => {
+  card.style.display = "none";
+};
+
 startBtn.onclick = () => {
   startBtn.style.display = "none";
   card.style.display = "block";
