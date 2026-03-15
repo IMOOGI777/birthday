@@ -3,6 +3,12 @@ const PI2 = Math.PI * 2;
 const random = (min, max) => Math.random() * (max - min + 1) + min | 0;
 const timestamp = _ => new Date().getTime();
 
+// canvas
+let canvas = document.getElementById('birthday');
+let ctx = canvas.getContext('2d');
+
+// audio
+const birthdaySong = document.getElementById("birthdaySong");
 
 // container
 class Birthday {
@@ -11,7 +17,7 @@ class Birthday {
     this.fireworks = [];
     this.counter = 0;
   }
-  
+
   resize() {
     this.width = canvas.width = window.innerWidth;
     let center = this.width / 2 | 0;
@@ -22,11 +28,11 @@ class Birthday {
     this.spawnC = this.height * .1;
     this.spawnD = this.height * .5;
   }
-  
+
   onClick(evt) {
     let x = evt.clientX || evt.touches && evt.touches[0].pageX;
     let y = evt.clientY || evt.touches && evt.touches[0].pageY;
-     
+
     let count = random(3,5);
     for(let i = 0; i < count; i++) this.fireworks.push(new Firework(
       random(this.spawnA, this.spawnB),
@@ -36,10 +42,10 @@ class Birthday {
       random(0, 260),
       random(30, 110)
     ));
-          
+
     this.counter = -1;
   }
-  
+
   update(delta) {
     ctx.globalCompositeOperation = 'hard-light';
     ctx.fillStyle = `rgba(20,20,20,${ 7 * delta })`;
@@ -48,7 +54,7 @@ class Birthday {
     ctx.globalCompositeOperation = 'lighter';
     for (let firework of this.fireworks) firework.update(delta);
 
-    // automatic new fireworks
+    // automatic fireworks
     this.counter += delta * 3;
     if (this.counter >= 1) {
       this.fireworks.push(new Firework(
@@ -117,10 +123,7 @@ class Firework {
   }
 }
 
-// canvas setup
-let canvas = document.getElementById('birthday');
-let ctx = canvas.getContext('2d');
-
+// setup
 let then = timestamp();
 let birthday = new Birthday();
 window.onresize = () => birthday.resize();
@@ -129,27 +132,25 @@ window.onresize = () => birthday.resize();
 const startBtn = document.getElementById("startBtn");
 const card = document.getElementById("card");
 const closeCard = document.getElementById("closeCard");
-const birthdaySong = document.getElementById("birthdaySong");
 
 // Close card button
 closeCard.onclick = (e) => {
-  e.stopPropagation(); // Prevent event from bubbling up
+  e.stopPropagation(); // Prevent event bubbling
   card.style.display = "none";
-  startBtn.style.display = "block"; // Show the start button again
+  startBtn.style.display = "block";
+  birthdaySong.pause();
+  birthdaySong.currentTime = 0; // reset to start
 };
 
-// Start button opens card + initial fireworks
-// Start button opens card + initial fireworks + play music
+// Start button
 startBtn.onclick = () => {
   startBtn.style.display = "none";
   card.style.display = "block";
 
-  // Play birthday song
-  birthdaySong.play().catch(error => {
-    console.log("Audio play failed:", error);
-  });
+  // play audio
+  birthdaySong.play().catch(e => console.log("Audio play blocked:", e));
 
-  // initial fireworks burst
+  // initial fireworks
   for (let i=0; i<5; i++) {
     birthday.fireworks.push(new Firework(
       window.innerWidth/2,
@@ -163,6 +164,7 @@ startBtn.onclick = () => {
 
   birthday.counter = 1;
 };
+
 // Fireworks on clicks outside card/buttons
 document.addEventListener('click', evt => {
   if (!evt.target.closest('#card') && !evt.target.closest('#startBtn') && !evt.target.closest('#closeCard')) {
