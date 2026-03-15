@@ -50,20 +50,7 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
   display: none;
-  z-index: 2; /* above fireworks but below button if needed */
-}
-
-/* Notebook Paper Effect */
-.paper {
-  width: 420px;
-  padding: 40px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 5px;
-  background-image:
-    linear-gradient(#fff 95%, #cfd8dc 95%),
-    linear-gradient(90deg, #ff9aa2 0, #ff9aa2 3px, transparent 3px);
-  background-size: 100% 35px, 35px 100%;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+  z-index: 2; /* above fireworks */
 }
 
 /* Close button */
@@ -80,6 +67,19 @@ h1 {
 }
 #closeCard:hover {
   color: #ff1493;
+}
+
+/* Notebook Paper Effect */
+.paper {
+  width: 420px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 5px;
+  background-image:
+    linear-gradient(#fff 95%, #cfd8dc 95%),
+    linear-gradient(90deg, #ff9aa2 0, #ff9aa2 3px, transparent 3px);
+  background-size: 100% 35px, 35px 100%;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }
 
 .paper h2 {
