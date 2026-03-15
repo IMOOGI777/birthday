@@ -134,7 +134,17 @@ startBtn.onclick = () => {
   card.style.display = "block";
 
   // Start fireworks immediately in center
-  birthday.onClick({clientX: window.innerWidth/2, clientY: window.innerHeight/3});
+  // Optional: a first burst in the center
+for(let i=0; i<5; i++){
+  birthday.fireworks.push(new Firework(
+    window.innerWidth/2,
+    window.innerHeight,
+    random(window.innerWidth/4, 3*window.innerWidth/4),
+    window.innerHeight/3,
+    random(0, 360),
+    random(30, 110)
+  ));
+}
 };
 
 // Fireworks on click anywhere else
