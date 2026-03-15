@@ -199,14 +199,10 @@ p {
   }
   
   .paper h2 {
-    font-size: 1.8em;
-  }
-  
-  .paper p {
-    font-size: 0.80em;
-    text-align: right;
+    text-align: center;
 
   }
+  
   
   .photos {
     flex-direction: column; /* Stack photos vertically on mobile */
