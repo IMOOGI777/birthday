@@ -14,7 +14,7 @@ canvas {
   pointer-events: none;
 }
 
-/* Main text */
+/* Main "Click" text */
 h1 {
   position: absolute;
   top: 20%;
@@ -29,20 +29,7 @@ h1 {
   pointer-events: none;
 }
 
-p {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 5em;
-  font-weight: 900;
-  user-select: none;
-  z-index: 2;
-  pointer-events: none;
-}
-
+/* REMOVED the duplicate p style block from here. It was overriding the card's text. */
 
 /* Start Button */
 #startBtn {
@@ -60,96 +47,7 @@ p {
   z-index: 4;
 }
 
-/* Birthday Card */
-#card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: none;
-  z-index: 3;
-}
-
-/* Close button - updated styles */
-#closeCard {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: #ff4444 !important; /* Red background with !important */
-  color: white !important; /* White X with !important */
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 4;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  padding: 0;
-  transition: background-color 0.2s ease;
-}
-
-#closeCard:hover {
-  background-color: #cc0000 !important;
-}
-
-#closeCard:active {
-  background-color: #990000 !important;
-}
-
-/* Notebook Paper Effect */
-.paper {
-  width: 420px;
-  height: 600px;
-  padding: 30px 25px; /* Slightly reduced padding */
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 5px;
-  background-image:
-    linear-gradient(#fff 95%, #cfd8dc 95%),
-    linear-gradient(90deg, #ff9aa2 0, #ff9aa2 3px, transparent 3px);
-  background-size: 100% 30px, 35px 100%; /* Adjusted line height */
-  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-}
-
-.paper h2 {
-  text-align: center;
-  font-family: 'Pacifico', 'Brush Script MT', cursive;
-  font-size: 2em; /* Reduced from 2.5em */
-  color: #ff1493;
-  margin: 5px 0 15px 0; /* Adjusted margins */
-  text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.2);
-}
-
-.paper p {
-  font-family: 'Quicksand', 'Segoe UI', sans-serif;
-  font-size: 0.80em; /* Reduced from 1.2em */
-  color: #4a4a4a;
-  margin: 10px 0 15px 0; /* Reduced margins */
-  padding: 0 5px; /* Reduced padding */
-  font-weight: 500;
-}
-
-.photos {
-  display: flex;
-  gap: 8px; /* Reduced gap */
-  margin-top: 15px; /* Reduced margin */
-  justify-content: center;
-}
-
-.photos img {
-  width: 47%; /* Slightly smaller */
-  border-radius: 6px;
-  border: 2px solid #ffb6c1; /* Slightly thinner border */
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-  max-width: 100%; /* Ensures images don't overflow */
-  height: auto; /* Maintains aspect ratio */
-}
-
-/* Make sure the card itself doesn't overflow */
+/* Birthday Card Container */
 #card {
   position: absolute;
   top: 50%;
@@ -160,11 +58,11 @@ p {
   max-width: 90vw; /* Prevents card from being too wide on small screens */
 }
 
-/* Close button positioning */
+/* Close button */
 #closeCard {
   position: absolute;
-  top: 5px; /* Adjusted position */
-  right: 5px; /* Adjusted position */
+  top: 5px;
+  right: 5px;
   width: 28px;
   height: 28px;
   border: none;
@@ -183,26 +81,106 @@ p {
   transition: background-color 0.2s ease;
 }
 
-/* Optional: Make it responsive for mobile */
+#closeCard:hover {
+  background-color: #cc0000;
+}
+
+#closeCard:active {
+  background-color: #990000;
+}
+
+/* Notebook Paper Effect */
+.paper {
+  width: 420px;
+  max-width: 100%; /* Allows it to shrink on smaller screens */
+  height: auto; /* Let height be determined by content */
+  min-height: 550px; /* Give it a bit of a minimum height */
+  padding: 30px 25px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 5px;
+  background-image:
+    linear-gradient(#fff 95%, #cfd8dc 95%),
+    linear-gradient(90deg, #ff9aa2 0, #ff9aa2 3px, transparent 3px);
+  background-size: 100% 30px, 35px 100%;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.paper h2 {
+  text-align: center;
+  font-family: 'Pacifico', 'Brush Script MT', cursive;
+  font-size: 2em;
+  color: #ff1493;
+  margin: 5px 0 15px 0;
+  text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.2);
+}
+
+/* Style for ALL paragraphs INSIDE the paper */
+.paper p {
+  font-family: 'Quicksand', 'Segoe UI', sans-serif;
+  font-size: 1.1em; /* Slightly larger for readability */
+  color: #4a4a4a;
+  margin: 12px 0; /* Consistent vertical margin */
+  padding: 0 5px;
+  font-weight: 500;
+  line-height: 1.6; /* Improve readability */
+  position: relative; /* Reset positioning */
+  top: auto; /* Reset positioning */
+  left: auto; /* Reset positioning */
+  transform: none; /* Reset positioning */
+  color: #4a4a4a; /* Ensure it's not white */
+  font-weight: 500;
+  z-index: auto; /* Reset z-index */
+  pointer-events: auto; /* Allow selection if needed */
+}
+
+/* Specific style for the Korean/name line to give it a little flair */
+.paper p:last-of-type {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #d44c7a;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.photos {
+  display: flex;
+  gap: 8px;
+  margin: 20px 0 10px 0; /* Add margin above and below */
+  justify-content: center;
+}
+
+.photos img {
+  width: 47%;
+  border-radius: 6px;
+  border: 2px solid #ffb6c1;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile Responsiveness */
 @media (max-width: 500px) {
   .paper {
-    width: 320px; /* Smaller width for mobile */
+    width: 320px;
     padding: 25px 20px;
+    min-height: 500px;
   }
   
   .paper h2 {
-    text-align: center;
-
+    font-size: 1.8em;
   }
   
+  .paper p {
+    font-size: 1em;
+  }
   
   .photos {
-    flex-direction: column; /* Stack photos vertically on mobile */
+    flex-direction: column;
     align-items: center;
   }
   
   .photos img {
-    width: 90%; /* Wider when stacked */
+    width: 90%;
     margin-bottom: 5px;
   }
 }
