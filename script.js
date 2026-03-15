@@ -129,6 +129,7 @@ window.onresize = () => birthday.resize();
 const startBtn = document.getElementById("startBtn");
 const card = document.getElementById("card");
 const closeCard = document.getElementById("closeCard");
+const birthdaySong = document.getElementById("birthdaySong");
 
 // Close card button
 closeCard.onclick = (e) => {
@@ -138,9 +139,15 @@ closeCard.onclick = (e) => {
 };
 
 // Start button opens card + initial fireworks
+// Start button opens card + initial fireworks + play music
 startBtn.onclick = () => {
   startBtn.style.display = "none";
   card.style.display = "block";
+
+  // Play birthday song
+  birthdaySong.play().catch(error => {
+    console.log("Audio play failed:", error);
+  });
 
   // initial fireworks burst
   for (let i=0; i<5; i++) {
@@ -156,7 +163,6 @@ startBtn.onclick = () => {
 
   birthday.counter = 1;
 };
-
 // Fireworks on clicks outside card/buttons
 document.addEventListener('click', evt => {
   if (!evt.target.closest('#card') && !evt.target.closest('#startBtn') && !evt.target.closest('#closeCard')) {
