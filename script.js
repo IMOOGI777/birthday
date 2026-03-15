@@ -155,9 +155,18 @@ startBtn.onclick = () => {
 };
 
 // allow extra fireworks on clicks
-document.onclick = evt => birthday.onClick(evt);
-document.ontouchstart = evt => birthday.onClick(evt);
+// only spawn fireworks if click is NOT on card or button
+document.addEventListener('click', evt => {
+  if (!evt.target.closest('#card') && !evt.target.closest('#startBtn') && !evt.target.closest('#closeCard')) {
+    birthday.onClick(evt);
+  }
+});
 
+document.addEventListener('touchstart', evt => {
+  if (!evt.target.closest('#card') && !evt.target.closest('#startBtn') && !evt.target.closest('#closeCard')) {
+    birthday.onClick(evt);
+  }
+});
 // animation loop
 (function loop(){
   requestAnimationFrame(loop);
