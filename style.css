@@ -29,6 +29,21 @@ h1 {
   pointer-events: none;
 }
 
+p {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 5em;
+  font-weight: 900;
+  user-select: none;
+  z-index: 2;
+  pointer-events: none;
+}
+
+
 /* Start Button */
 #startBtn {
   position: absolute;
