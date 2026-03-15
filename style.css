@@ -11,7 +11,7 @@ canvas {
   top: 0;
   left: 0;
   z-index: 1;
-  pointer-events: none; /* ADD THIS - allows clicks to pass through canvas */
+  pointer-events: none;
 }
 
 /* Main text */
@@ -25,8 +25,8 @@ h1 {
   font-size: 5em;
   font-weight: 900;
   user-select: none;
-  z-index: 2; /* INCREASE to be above canvas */
-  pointer-events: none; /* ADD THIS - prevents text from blocking clicks */
+  z-index: 2;
+  pointer-events: none;
 }
 
 /* Start Button */
@@ -42,7 +42,7 @@ h1 {
   background: #ff69b4;
   color: white;
   cursor: pointer;
-  z-index: 4; /* INCREASE */
+  z-index: 4;
 }
 
 /* Birthday Card */
@@ -52,10 +52,10 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
   display: none;
-  z-index: 3; /* INCREASE */
+  z-index: 3;
 }
 
-/* Close button */
+/* Close button - updated styles */
 #closeCard {
   position: absolute;
   top: 10px;
@@ -63,26 +63,27 @@ h1 {
   width: 30px;
   height: 30px;
   border: none;
-  background-color: #ff4444; /* Red background */
-  color: white; /* White X */
+  background-color: #ff4444 !important; /* Red background with !important */
+  color: white !important; /* White X with !important */
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
   z-index: 4;
-  border-radius: 4px; /* Slightly rounded corners */
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
-  transition: background-color 0.2s ease; /* Smooth hover effect */
+  padding: 0;
+  transition: background-color 0.2s ease;
 }
 
 #closeCard:hover {
-  background-color: #cc0000; /* Darker red on hover */
+  background-color: #cc0000 !important;
 }
 
 #closeCard:active {
-  background-color: #990000; /* Even darker when clicked */
+  background-color: #990000 !important;
 }
 
 /* Notebook Paper Effect */
