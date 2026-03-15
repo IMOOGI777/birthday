@@ -105,26 +105,47 @@ p {
 .paper {
   width: 420px;
   padding: 40px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 5px;
   background-image:
     linear-gradient(#fff 95%, #cfd8dc 95%),
     linear-gradient(90deg, #ff9aa2 0, #ff9aa2 3px, transparent 3px);
   background-size: 100% 35px, 35px 100%;
   box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+  text-align: center; /* This centers all text */
 }
 
 .paper h2 {
   text-align: center;
+  font-family: 'Pacifico', 'Brush Script MT', cursive; /* Beautiful script font */
+  font-size: 2.5em;
+  color: #ff1493; /* Deep pink */
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+  letter-spacing: 1px;
+}
+
+.paper p {
+  text-align: center;
+  font-family: 'Quicksand', 'Segoe UI', sans-serif; /* Modern, friendly font */
+  font-size: 1.2em;
+  line-height: 1.8;
+  color: #4a4a4a; /* Dark gray for readability */
+  margin: 20px 0;
+  padding: 0 10px;
+  font-weight: 500;
 }
 
 .photos {
   display: flex;
   gap: 10px;
   margin-top: 20px;
+  justify-content: center; /* Center the photos */
 }
 
 .photos img {
   width: 48%;
   border-radius: 6px;
+  border: 3px solid #ffb6c1; /* Light pink border */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
