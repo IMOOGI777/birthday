@@ -122,21 +122,15 @@ p {
   color: #ff1493;
   margin: 5px 0 15px 0; /* Adjusted margins */
   text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.2);
-  letter-spacing: 1px;
-  line-height: 1.2;
-  word-wrap: break-word; /* Prevents text from overflowing */
 }
 
 .paper p {
-  text-align: center;
   font-family: 'Quicksand', 'Segoe UI', sans-serif;
-  font-size: 1em; /* Reduced from 1.2em */
-  line-height: 1.6; /* Slightly reduced line height */
+  font-size: 0.80em; /* Reduced from 1.2em */
   color: #4a4a4a;
   margin: 10px 0 15px 0; /* Reduced margins */
   padding: 0 5px; /* Reduced padding */
   font-weight: 500;
-  word-wrap: break-word;
 }
 
 .photos {
