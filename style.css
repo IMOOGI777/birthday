@@ -203,6 +203,8 @@ p {
   
   .paper p {
     font-size: 0.80em;
+    text-align: right;
+
   }
   
   .photos {
