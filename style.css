@@ -60,15 +60,29 @@ h1 {
   position: absolute;
   top: 10px;
   right: 10px;
+  width: 30px;
+  height: 30px;
   border: none;
-  background: transparent;
-  color: #ff69b4;
-  font-size: 24px;
+  background-color: #ff4444; /* Red background */
+  color: white; /* White X */
+  font-size: 20px;
+  font-weight: bold;
   cursor: pointer;
-  z-index: 4; /* INCREASE */
+  z-index: 4;
+  border-radius: 4px; /* Slightly rounded corners */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background-color 0.2s ease; /* Smooth hover effect */
 }
+
 #closeCard:hover {
-  color: #ff1493;
+  background-color: #cc0000; /* Darker red on hover */
+}
+
+#closeCard:active {
+  background-color: #990000; /* Even darker when clicked */
 }
 
 /* Notebook Paper Effect */
