@@ -127,13 +127,14 @@ window.onresize = () => birthday.resize();
 // start button and card
 const startBtn = document.getElementById("startBtn");
 const card = document.getElementById("card");
-
 const closeCard = document.getElementById("closeCard");
 
+// Close card button
 closeCard.onclick = () => {
   card.style.display = "none";
 };
 
+// Start button opens card + initial fireworks
 startBtn.onclick = () => {
   startBtn.style.display = "none";
   card.style.display = "block";
@@ -150,23 +151,21 @@ startBtn.onclick = () => {
     ));
   }
 
-  // start continuous spawning
   birthday.counter = 1;
 };
 
-// allow extra fireworks on clicks
-// only spawn fireworks if click is NOT on card or button
+// Fireworks on clicks outside card/buttons
 document.addEventListener('click', evt => {
   if (!evt.target.closest('#card') && !evt.target.closest('#startBtn') && !evt.target.closest('#closeCard')) {
     birthday.onClick(evt);
   }
 });
-
 document.addEventListener('touchstart', evt => {
   if (!evt.target.closest('#card') && !evt.target.closest('#startBtn') && !evt.target.closest('#closeCard')) {
     birthday.onClick(evt);
   }
 });
+
 // animation loop
 (function loop(){
   requestAnimationFrame(loop);
