@@ -104,48 +104,115 @@ p {
 /* Notebook Paper Effect */
 .paper {
   width: 420px;
-  padding: 40px;
-  background: rgba(255, 255, 255, 0.9);
+  padding: 30px 25px; /* Slightly reduced padding */
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 5px;
   background-image:
     linear-gradient(#fff 95%, #cfd8dc 95%),
     linear-gradient(90deg, #ff9aa2 0, #ff9aa2 3px, transparent 3px);
-  background-size: 100% 35px, 35px 100%;
+  background-size: 100% 30px, 35px 100%; /* Adjusted line height */
   box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-  text-align: center; /* This centers all text */
+  text-align: center;
+  box-sizing: border-box; /* This ensures padding is included in width */
 }
 
 .paper h2 {
   text-align: center;
-  font-family: 'Pacifico', 'Brush Script MT', cursive; /* Beautiful script font */
-  font-size: 2.5em;
-  color: #ff1493; /* Deep pink */
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+  font-family: 'Pacifico', 'Brush Script MT', cursive;
+  font-size: 2em; /* Reduced from 2.5em */
+  color: #ff1493;
+  margin: 5px 0 15px 0; /* Adjusted margins */
+  text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.2);
   letter-spacing: 1px;
+  line-height: 1.2;
+  word-wrap: break-word; /* Prevents text from overflowing */
 }
 
 .paper p {
   text-align: center;
-  font-family: 'Quicksand', 'Segoe UI', sans-serif; /* Modern, friendly font */
-  font-size: 1.2em;
-  line-height: 1.8;
-  color: #4a4a4a; /* Dark gray for readability */
-  margin: 20px 0;
-  padding: 0 10px;
+  font-family: 'Quicksand', 'Segoe UI', sans-serif;
+  font-size: 1em; /* Reduced from 1.2em */
+  line-height: 1.6; /* Slightly reduced line height */
+  color: #4a4a4a;
+  margin: 10px 0 15px 0; /* Reduced margins */
+  padding: 0 5px; /* Reduced padding */
   font-weight: 500;
+  word-wrap: break-word;
 }
 
 .photos {
   display: flex;
-  gap: 10px;
-  margin-top: 20px;
-  justify-content: center; /* Center the photos */
+  gap: 8px; /* Reduced gap */
+  margin-top: 15px; /* Reduced margin */
+  justify-content: center;
 }
 
 .photos img {
-  width: 48%;
+  width: 47%; /* Slightly smaller */
   border-radius: 6px;
-  border: 3px solid #ffb6c1; /* Light pink border */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border: 2px solid #ffb6c1; /* Slightly thinner border */
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  max-width: 100%; /* Ensures images don't overflow */
+  height: auto; /* Maintains aspect ratio */
+}
+
+/* Make sure the card itself doesn't overflow */
+#card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 3;
+  max-width: 90vw; /* Prevents card from being too wide on small screens */
+}
+
+/* Close button positioning */
+#closeCard {
+  position: absolute;
+  top: 5px; /* Adjusted position */
+  right: 5px; /* Adjusted position */
+  width: 28px;
+  height: 28px;
+  border: none;
+  background-color: #ff4444;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 4;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  transition: background-color 0.2s ease;
+}
+
+/* Optional: Make it responsive for mobile */
+@media (max-width: 500px) {
+  .paper {
+    width: 320px; /* Smaller width for mobile */
+    padding: 25px 20px;
+  }
+  
+  .paper h2 {
+    font-size: 1.8em;
+  }
+  
+  .paper p {
+    font-size: 0.95em;
+    line-height: 1.5;
+  }
+  
+  .photos {
+    flex-direction: column; /* Stack photos vertically on mobile */
+    align-items: center;
+  }
+  
+  .photos img {
+    width: 90%; /* Wider when stacked */
+    margin-bottom: 5px;
+  }
 }
