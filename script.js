@@ -3,14 +3,16 @@ const PI2 = Math.PI * 2;
 const random = (min, max) => Math.random() * (max - min + 1) + min | 0;
 const timestamp = _ => new Date().getTime();
 
-// canvas
+// canvas setup
 let canvas = document.getElementById('birthday');
 let ctx = canvas.getContext('2d');
 
-// audio
-const birthdaySong = document.getElementById("birthdaySong");
+// audio setup
+const birthdaySong = new Audio('song.mp3');
+birthdaySong.loop = true;
+birthdaySong.volume = 0.8; // adjust volume if needed
 
-// container
+// Birthday container
 class Birthday {
   constructor() {
     this.resize();
@@ -39,7 +41,7 @@ class Birthday {
       this.height,
       x,
       y,
-      random(0, 260),
+      random(0, 360),
       random(30, 110)
     ));
 
@@ -72,6 +74,7 @@ class Birthday {
   }
 }
 
+// Firework class
 class Firework {
   constructor(x, y, targetX, targetY, shade, offsprings) {
     this.dead = false;
@@ -123,32 +126,27 @@ class Firework {
   }
 }
 
-// setup
+// initialize
 let then = timestamp();
 let birthday = new Birthday();
 window.onresize = () => birthday.resize();
 
-// start button and card
+// Start button and card
 const startBtn = document.getElementById("startBtn");
 const card = document.getElementById("card");
 const closeCard = document.getElementById("closeCard");
 
-// Close card button
-closeCard.onclick = (e) => {
-  e.stopPropagation(); // Prevent event bubbling
-  card.style.display = "none";
-  startBtn.style.display = "block";
-  birthdaySong.pause();
-  birthdaySong.currentTime = 0; // reset to start
-};
-
-// Start button
+// Start button click
 startBtn.onclick = () => {
   startBtn.style.display = "none";
   card.style.display = "block";
 
-  // play audio
-  birthdaySong.play().catch(e => console.log("Audio play blocked:", e));
+  // play audio safely
+  birthdaySong.play().then(() => {
+    console.log("Birthday song started!");
+  }).catch(e => {
+    console.log("Audio blocked:", e);
+  });
 
   // initial fireworks
   for (let i=0; i<5; i++) {
@@ -163,6 +161,15 @@ startBtn.onclick = () => {
   }
 
   birthday.counter = 1;
+};
+
+// Close card click
+closeCard.onclick = (e) => {
+  e.stopPropagation();
+  card.style.display = "none";
+  startBtn.style.display = "block";
+  birthdaySong.pause();
+  birthdaySong.currentTime = 0;
 };
 
 // Fireworks on clicks outside card/buttons
