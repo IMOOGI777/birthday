@@ -130,8 +130,10 @@ const card = document.getElementById("card");
 const closeCard = document.getElementById("closeCard");
 
 // Close card button
-closeCard.onclick = () => {
+closeCard.onclick = (e) => {
+  e.stopPropagation(); // Prevent event from bubbling up
   card.style.display = "none";
+  startBtn.style.display = "block"; // Show the start button again
 };
 
 // Start button opens card + initial fireworks
