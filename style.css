@@ -104,6 +104,7 @@ p {
 /* Notebook Paper Effect */
 .paper {
   width: 420px;
+  height: 750px;
   padding: 30px 25px; /* Slightly reduced padding */
   background: rgba(255, 255, 255, 0.95);
   border-radius: 5px;
