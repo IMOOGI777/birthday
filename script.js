@@ -3,6 +3,41 @@ const PI2 = Math.PI * 2;
 const random = (min, max) => Math.random() * (max - min + 1) + min | 0;
 const timestamp = _ => new Date().getTime();
 
+// Create audio elements
+const clickSound = new Audio('click-sound.mp3');
+const birthdaySong = new Audio('happy-birthday.mp3');
+
+// Play sound when start button is clicked
+startBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  
+  // Play click sound
+  clickSound.play();
+  
+  // Play birthday song (optional)
+  birthdaySong.play();
+  
+  startBtn.style.display = "none";
+  card.style.display = "block";
+
+  // initial fireworks burst
+  for (let i=0; i<5; i++) {
+    birthday.fireworks.push(new Firework(
+      window.innerWidth/2,
+      window.innerHeight,
+      Math.random()*window.innerWidth,
+      window.innerHeight/3,
+      Math.random()*360,
+      Math.random()*80 + 30
+    ));
+  }
+
+  birthday.counter = 1;
+  
+  return false;
+});
+
 // container
 class Birthday {
   constructor() {
