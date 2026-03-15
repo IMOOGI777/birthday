@@ -10,7 +10,8 @@ canvas {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1; /* behind everything */
+  z-index: 1;
+  pointer-events: none; /* ADD THIS - allows clicks to pass through canvas */
 }
 
 /* Main text */
@@ -24,7 +25,8 @@ h1 {
   font-size: 5em;
   font-weight: 900;
   user-select: none;
-  z-index: 1;
+  z-index: 2; /* INCREASE to be above canvas */
+  pointer-events: none; /* ADD THIS - prevents text from blocking clicks */
 }
 
 /* Start Button */
@@ -40,7 +42,7 @@ h1 {
   background: #ff69b4;
   color: white;
   cursor: pointer;
-  z-index: 3; /* on top of canvas */
+  z-index: 4; /* INCREASE */
 }
 
 /* Birthday Card */
@@ -50,7 +52,7 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
   display: none;
-  z-index: 2; /* above fireworks */
+  z-index: 3; /* INCREASE */
 }
 
 /* Close button */
@@ -63,7 +65,7 @@ h1 {
   color: #ff69b4;
   font-size: 24px;
   cursor: pointer;
-  z-index: 3;
+  z-index: 4; /* INCREASE */
 }
 #closeCard:hover {
   color: #ff1493;
