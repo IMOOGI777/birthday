@@ -141,6 +141,7 @@ let ctx = canvas.getContext('2d')
 let then = timestamp()
 
 let birthday = new Birthday
+birthday.onClick({clientX: window.innerWidth/2, clientY: window.innerHeight/2})
 window.onresize = () => birthday.resize()
 document.onclick = evt => birthday.onClick(evt)
 document.ontouchstart = evt => birthday.onClick(evt)
