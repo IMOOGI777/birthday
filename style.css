@@ -1,51 +1,82 @@
-#startBtn{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  padding:15px 35px;
-  font-size:22px;
-  border:none;
-  border-radius:30px;
-  background:#ff69b4;
-  color:white;
-  cursor:pointer;
-  z-index:10;
+/* Reset and background */
+body {
+  margin: 0;
+  background: #020202;
+  cursor: crosshair;
 }
 
-#card{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  display:none;
-  z-index:5;
+canvas {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1; /* behind everything */
 }
 
-.paper{
-  width:420px;
-  padding:40px;
-  background:white;
-  border-radius:5px;
+/* Main text */
+h1 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 5em;
+  font-weight: 900;
+  user-select: none;
+  z-index: 1;
+}
 
+/* Start Button */
+#startBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 35px;
+  font-size: 22px;
+  border: none;
+  border-radius: 30px;
+  background: #ff69b4;
+  color: white;
+  cursor: pointer;
+  z-index: 3; /* on top of canvas */
+}
+
+/* Birthday Card */
+#card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 2; /* above fireworks but below button if needed */
+}
+
+/* Notebook Paper Effect */
+.paper {
+  width: 420px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 5px;
   background-image:
     linear-gradient(#fff 95%, #cfd8dc 95%),
-    linear-gradient(90deg,#ff9aa2 0,#ff9aa2 3px,transparent 3px);
-  background-size:100% 35px,35px 100%;
-  box-shadow:0 15px 40px rgba(0,0,0,0.4);
+    linear-gradient(90deg, #ff9aa2 0, #ff9aa2 3px, transparent 3px);
+  background-size: 100% 35px, 35px 100%;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }
 
-.paper h2{
-  text-align:center;
+.paper h2 {
+  text-align: center;
 }
 
-.photos{
-  display:flex;
-  gap:10px;
-  margin-top:20px;
+.photos {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
 }
 
-.photos img{
-  width:48%;
-  border-radius:6px;
+.photos img {
+  width: 48%;
+  border-radius: 6px;
 }
