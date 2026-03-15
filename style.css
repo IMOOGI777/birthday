@@ -104,7 +104,7 @@ p {
 /* Notebook Paper Effect */
 .paper {
   width: 420px;
-  height: 750px;
+  height: 600px;
   padding: 30px 25px; /* Slightly reduced padding */
   background: rgba(255, 255, 255, 0.95);
   border-radius: 5px;
@@ -113,8 +113,6 @@ p {
     linear-gradient(90deg, #ff9aa2 0, #ff9aa2 3px, transparent 3px);
   background-size: 100% 30px, 35px 100%; /* Adjusted line height */
   box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-  text-align: center;
-  box-sizing: border-box; /* This ensures padding is included in width */
 }
 
 .paper h2 {
